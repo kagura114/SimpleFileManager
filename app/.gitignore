@@ -1,0 +1,4 @@
+/build
+/src/main/rust/libsysinfo/target/
+/src/main/rust/libfshelper/target/
+/src/main/rust/libfshelper/.vscode/

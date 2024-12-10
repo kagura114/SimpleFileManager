@@ -1,0 +1,94 @@
+<resources>
+  <string name="app_name">文件管理器</string>
+  <string name="search">浏览</string>
+  <string name="edit">编辑</string>
+  <string name="picture">图片</string>
+  <string name="video">视频</string>
+  <string name="music">音乐</string>
+  <string name="document">文件</string>
+  <string name="app">其他</string>
+  <string name="location">位置</string>
+  <string name="store">内部存储</string>
+  <string name="delete">最近删除</string>
+  <string name="download">下载与接收</string>
+  <string name="source">快速查看</string>
+  <string name="radio">录音机</string>
+  <string name="Delete">删除</string>
+  <string name="copy">复制</string>
+  <string name="cut">剪切</string>
+  <string name="paste">粘贴</string>
+
+  <string name="title_activity_require_permission">RequirePermissionActivity</string>
+
+  <string name="require_permission_readwrite">需要读取/写入存储权限以继续</string>
+  <string name="require_manage_storage">需要管理存储权限以继续</string>
+  <string name="give_permission">授权</string>
+
+  <string name="used_storage_percentage">%d%%</string>
+  <string name="used_storage">已使用\n%s / %s</string>
+
+  <string name="loading">加载中</string>
+
+  <!-- Actions -->
+  <string name="select_action">选择操作</string>
+  <string name="action_copy">复制</string>
+  <string name="action_paste">粘贴</string>
+  <string name="action_delete">删除</string>
+  <string name="action_cut">剪切</string>
+  <string name="action_info">信息</string>
+  <string name="action_new_file">新建文件</string>
+  <string name="action_new_folder">新建文件夹</string>
+  <string name="action_cancel">取消</string>
+
+  <!-- Confirmations -->
+  <string name="confirm">确认</string>
+  <string name="okay">好的</string>
+  <string name="cancel">取消</string>
+  <string name="confirm_to_delete">确认删除</string>
+  <string name="confirm_to_delete_file">确认删除文件: %s</string>
+
+  <string name="file_info">文件信息</string>
+  <string name="file_info_text">
+文件名：%s\n
+路径：%s\n
+大小：%s\n
+最后修改时间：%s
+  </string>
+
+  <string name="advanced">查看</string>
+  <string name="settings">软件设置</string>
+  <string name="all_files">全部文件</string>
+  <string name="storage_info">内部存储信息</string>
+
+  <string name="camera">相机</string>
+  <string name="pictures">公用图片</string>
+  <string name="documents">公用文档</string>
+  <string name="prev_folder">上一级目录</string>
+
+  <string name="input_name">请输入名称</string>
+  <string name="create_directory">将在 %s 创建文件夹</string>
+  <string name="create_file">将在 %s 创建文件</string>
+
+  <string name="error_nothing_to_paste">未找到可粘贴的内容</string>
+  <string name="error_need_input_name">请输入名称</string>
+  <string name="error_already_exist">已存在此文件（夹）</string>
+  <string name="title_activity_view_file">ViewFileActivity</string>
+  <string name="title_activity_search">SearchActivity</string>
+  <string name="search_here">搜索%s</string>
+  <string name="search_result">搜索%s结果</string>
+  <string name="error_need_search_input">请输入要搜索的内容</string>
+  <string name="error_search_input_illegal">输入的搜索内容不合法</string>
+  <string name="search_file">搜索文件</string>
+  <string name="search_no_result">未找到任何结果</string>
+  <string name="search_some_result">找到%d个结果</string>
+  <string name="sort_by_size">已选择按大小排序</string>
+  <string name="sort_by_time">已选择按时间排序</string>
+  <string name="title_activity_setting">SettingActivity</string>
+  <string name="setting_hide_extension">隐藏扩展名</string>
+  <string name="setting_hide_extension_description">如果打开，则会显示文件名 abc.efg，否则显示文件全名 abc.efg.txt\n此选项不会影响搜索页面显示扩展名</string>
+  <string name="setting_hide_hidden_file">隐藏点文件</string>
+  <string name="setting_hide_hidden_file_description">隐藏所有以 . 开头的文件和文件夹\n. 开头的文件（或文件夹）通常表示隐藏文件（或文件夹）\n此选项只对查看全部文件功能有效</string>
+
+  <string name="no_items">无内容</string>
+  <string name="about">关于</string>
+</resources>

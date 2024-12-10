@@ -1,0 +1,12 @@
+[package]
+name = "sysinfo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+jni = "0.21.1"
+page_size = "0.6.0"
+sysinfo = "0.32.0"
+
+[lib]
+crate-type = ["cdylib"]

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?><!--本页面为图片页面-->
+<!--长按图片，只是提供了复制，删除，剪切，粘贴的按键，并未实现功能,按键的设计在menu下的function.xml文件中,相关的java文件见picture_page.java。且只是固定提供了9张图片，不能动态增加图片，所以粘贴功能没有实现-->
+<!--要能同时删除多个图片-->
+<!--点击下箭头，是“以时间排序(默认)”和“以大小排序”也没有实现功能，具体设计在picture_page.java的showSortOption函数里面-->
+<!--点击搜索图标，是搜索图片功能，未实现搜索图片的功能，具体设计在picture_page_search的xml和java文件中,如果没有搜索到，就显示没有文件，已经提供相关的图标：@drawable/ic_no_document-->
+<!--单击图片能够显示图片，但不能左右滑动到下一张图片，要按exc键才能回到缩略图，而不是点击图片的任意位置就能回到缩略图,且单击之后不能放大缩小图片-->
+<!--picture_page.xml是主页面点击“音乐”之后进入的页面-->
+<!--picture_page_search.xml是picture_page.xml页面右上角的搜索页面-->
+<!--picture_full.xml是在picture_page.xml页面点击某张图片的缩略图后放大图片的页面-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingHorizontal="5dp"
+    android:id="@+id/main">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/PicturePageTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingStart="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/leftArrowImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="left_arrow"
+            android:src="@drawable/ic_left_arrow" />
+
+        <TextView
+            android:id="@+id/titleDescription"
+            app:layout_constraintStart_toEndOf="@+id/leftArrowImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/picture"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/sortImageView"
+            app:layout_constraintStart_toEndOf="@+id/titleDescription"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:contentDescription="arrow_drop_down"
+            android:src="@drawable/ic_arrow_drop_down" />
+
+        <ImageView
+            android:id="@+id/refreshData"
+            app:layout_constraintEnd_toStartOf="@+id/searchImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="refresh"
+            android:src="@drawable/baseline_refresh_24" />
+
+        <ImageView
+            android:id="@+id/searchImageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="search"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <GridView
+        android:id="@+id/PicturePageGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/PicturePageTopBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="10dp"
+        android:numColumns="3"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:scrollbarSize="0dp"
+        />
+
+    <TextView
+        android:id="@+id/LoadingBlankText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:text="@string/loading"
+        android:textSize="78sp"
+        android:background="@color/WhiteSmoke"/>
+
+
+    <LinearLayout
+        android:id="@+id/NothingFoundHint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="64sp"
+            android:text="@string/no_items"
+            app:drawableTopCompat="@drawable/outline_all_inclusive_24"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingHorizontal="5dp"
+    android:id="@+id/main">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/DocumentPageTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingStart="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/leftArrowImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="left_arrow"
+            android:src="@drawable/ic_left_arrow" />
+
+        <TextView
+            android:id="@+id/titleDescription"
+            app:layout_constraintStart_toEndOf="@+id/leftArrowImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/document"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/sortDocumentView"
+            app:layout_constraintStart_toEndOf="@+id/titleDescription"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:contentDescription="arrow_drop_down"
+            android:src="@drawable/ic_arrow_drop_down" />
+
+        <ImageView
+            android:id="@+id/refreshData"
+            app:layout_constraintEnd_toStartOf="@+id/searchDocumentView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="refresh"
+            android:src="@drawable/baseline_refresh_24" />
+
+
+        <ImageView
+            android:id="@+id/searchDocumentView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="search"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <GridView
+        android:id="@+id/DocumentGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/DocumentPageTopBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="10dp"
+        android:numColumns="1"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:scrollbarSize="0dp"
+        />
+
+    <TextView
+        android:id="@+id/LoadingBlankText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:text="@string/loading"
+        android:textSize="78sp"
+        android:background="@color/WhiteSmoke"/>
+
+    <LinearLayout
+        android:id="@+id/NothingFoundHint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="64sp"
+            android:text="@string/no_items"
+            app:drawableTopCompat="@drawable/outline_all_inclusive_24"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

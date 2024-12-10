@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?><!--本页面为视频页面-->
+<!--长按视频，只是提供了复制，删除，剪切，粘贴的按键，并未实现功能,按键的设计在menu下的function.xml文件中。且只是固定提供了3个视频，不能动态增加视频，所以粘贴功能没有实现,相关的java文件见video_page.java-->
+<!--要能删除多个视频-->
+<!--点击下箭头，是“以时间排序(默认)”和“以大小排序”也没有实现功能，具体设计在video_page.java的showSortOption函数里面-->
+<!--点击搜索图标，是搜索视频功能，未实现搜索视频的功能，具体设计在video_page_search的xml和java文件中,如果没有搜索到，就显示没有文件，已经提供相关的图标：@drawable/ic_no_document-->
+<!--单击视频能够打开视频，但不能左右滑动到下一个视频，要按exc键才能回到缩略图打开视频后，只有进度条，进度条的设计在video_display.xml文件中。没有暂停键和快进键，不能调节声音，视频的尺寸应该和mp4文件的尺寸一致，而不是和屏幕尺寸一致-->
+<!--video_display.xml文件提供了进度条的开始时间和结束时间，但都只是默认0，没有设置和对应的视频文件的时长一致，具体实现可以见“音乐”-->
+<!--video_display.xml没有设置暂停和播放键，我个人的想法是像短视频一样，点击视频就暂停,视频界面会出现暂停的图标，再点击一次就播放，视频界面会出现播放的图标，然后图标消失。暂停键在drawable的ic_pause，播放键在drawable的ic_play,我不知道怎么设计，所有没有设计id-->
+<!--3个视频文件放在assets-->
+<!--video_page.xml是主页面点击"视频“之后进入的页面，虽然该页面没有图片，但是最终呈现的效果是有视频的-->
+<!--video_page_search.xml是video_page.xml页面右上角的搜索页面-->
+<!--video_display.xml是点击某个视频播放的界面-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingHorizontal="5dp"
+    android:id="@+id/main">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/VideoPageTopBar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="10dp"
+      android:paddingStart="5dp"
+      android:orientation="horizontal"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/leftArrowImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:contentDescription="left_arrow"
+        android:src="@drawable/ic_left_arrow" />
+
+    <TextView
+        android:id="@+id/titleDescription"
+        app:layout_constraintStart_toEndOf="@+id/leftArrowImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/video"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/sortVideoView"
+        app:layout_constraintStart_toEndOf="@+id/titleDescription"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:contentDescription="arrow_drop_down"
+        android:src="@drawable/ic_arrow_drop_down" />
+
+    <ImageView
+        android:id="@+id/refreshData"
+        app:layout_constraintEnd_toStartOf="@+id/searchVideoView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="refresh"
+        android:src="@drawable/baseline_refresh_24" />
+
+
+    <ImageView
+        android:id="@+id/searchVideoView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="search"
+        android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <GridView
+      android:id="@+id/VideoGrid"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:paddingHorizontal="10dp"
+      android:paddingVertical="20dp"
+      app:layout_constraintTop_toBottomOf="@+id/VideoPageTopBar"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:horizontalSpacing="8dp"
+      android:verticalSpacing="10dp"
+      android:numColumns="1"
+      android:scrollbars="vertical"
+      android:clipToPadding="false"
+      android:scrollbarSize="0dp"
+      />
+
+  <TextView
+      android:id="@+id/LoadingBlankText"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:textAlignment="center"
+      android:gravity="center"
+      android:text="@string/loading"
+      android:textSize="78sp"
+      android:background="@color/WhiteSmoke"/>
+
+  <LinearLayout
+      android:id="@+id/NothingFoundHint"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:visibility="gone">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="64sp"
+        android:text="@string/no_items"
+        app:drawableTopCompat="@drawable/outline_all_inclusive_24"
+        />
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?><!--本页面为主页面-->
+<!--该页面顶部的搜索文件的功能没有实现,如果没有搜索到，就显示没有文件，已经提供相关的图标：@drawable/ic_no_document-->
+<!--图片的具体情况见picture_page.xml-->
+<!--视频的具体情况见video_page.xml-->
+<!--音乐的具体情况见music_page.xml-->
+<!--文件的具体情况见document_page.xml-->
+<!--应用的具体情况见app_page.xml-->
+<!--内部存储的具体情况见store_page.xml-->
+<!--最近删除的具体情况见delete_page.xml-->
+<!--下载与接收的具体情况见download_page.xml-->
+<!--浏览器的具体情况见internet_page.xml-->
+<!--录音机的具体情况见radio_page.xml-->
+<!--安装包的具体情况见install_package_page.xml-->
+<!--压缩包的具体情况见store_package_page.xml-->
+<!--通话与信息的具体情况见phone_information_page.xml-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke"
+    >
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginHorizontal="10dp"
+      android:layout_marginVertical="5dp"
+      android:orientation="vertical"
+      >
+    <!--设置”浏览“-->
+    <HorizontalScrollView
+        android:id="@+id/MainPageTypeSelector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainPageSearchButton"
+        >
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@android:color/transparent"
+          android:orientation="horizontal"
+          android:padding="10dp"
+          >
+
+        <!--设置“图片”按钮-->
+        <Button
+            android:id="@+id/MainPagePictureButton"
+            android:layout_width="101dp"
+            android:layout_height="108dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/design_default_color_background"
+            android:drawableTop="@drawable/ic_photo"
+            android:gravity="center"
+            android:text="@string/picture"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            />
+
+        <!--设置“视频”按钮-->
+        <Button
+            android:id="@+id/MainPageMusicButton"
+            android:layout_width="101dp"
+            android:layout_height="108dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="@color/design_default_color_background"
+            android:drawableTop="@drawable/ic_music"
+            android:gravity="center"
+            android:text="@string/music"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            />
+        <Button
+            android:id="@+id/MainPageVideoButton"
+            android:layout_width="101dp"
+            android:layout_height="108dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="@color/design_default_color_background"
+            android:drawableTop="@drawable/ic_video"
+            android:gravity="center"
+            android:text="@string/video"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            />
+
+        <!--设置“音乐”按钮-->
+
+        <!--设置“文档”按钮-->
+        <Button
+            android:id="@+id/MainPageDocumentButton"
+            android:layout_width="101dp"
+            android:layout_height="108dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="@color/design_default_color_background"
+            android:drawableTop="@drawable/ic_document"
+            android:gravity="center"
+            android:text="@string/document"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            />
+
+<!--        &lt;!&ndash;设置“应用”按钮&ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/MainPageAppButton"-->
+<!--            android:layout_width="101dp"-->
+<!--            android:layout_height="108dp"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:backgroundTint="@color/design_default_color_background"-->
+<!--            android:drawableTop="@drawable/ic_app"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/app"-->
+<!--            android:textSize="11sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            />-->
+      </LinearLayout>
+    </HorizontalScrollView>
+
+    <!--设置搜索框-->
+    <LinearLayout
+        android:id="@+id/MainPageTitleRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/search"
+          android:textColor="@color/black"
+          android:textSize="35sp"
+          android:textStyle="bold"
+          />
+      <!--        &lt;!&ndash;设置”编辑“&ndash;&gt;-->
+      <!--        <Button-->
+      <!--            android:layout_width="wrap_content"-->
+      <!--            android:layout_height="wrap_content"-->
+      <!--            android:layout_marginStart="200dp"-->
+      <!--            android:backgroundTint="@color/design_default_color_background"-->
+      <!--            android:text="@string/edit"-->
+      <!--            android:textColor="@color/black"-->
+      <!--            android:textSize="20sp"-->
+      <!--            android:textStyle="bold" />-->
+    </LinearLayout>
+
+    <!--设置水平滚动-->
+    <LinearLayout
+        android:id="@+id/MainPageLocationRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainPageTypeSelector"
+        >
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="20dp"
+          android:text="@string/advanced"
+          android:textSize="20sp"
+          />
+
+      <Button
+          android:id="@+id/MainPageAllFilesButton"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/white"
+          android:drawableLeft="@drawable/baseline_storage_24"
+          android:gravity="center"
+          android:paddingEnd="40dp"
+          android:paddingStart="40dp"
+          android:text="@string/all_files"
+          android:textColor="@color/black"
+          android:textSize="20sp"
+          />
+
+      <!--设置“内部存储”按钮-->
+      <Button
+          android:id="@+id/MainPageStorageButton"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/white"
+          android:drawableLeft="@drawable/ic_storage"
+          android:gravity="center"
+          android:paddingEnd="40dp"
+          android:paddingStart="40dp"
+          android:text="@string/storage_info"
+          android:textColor="@color/black"
+          android:textSize="20sp"
+          />
+
+
+      <Button
+          android:id="@+id/MainPageSettingsButton"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/white"
+          android:drawableLeft="@drawable/baseline_settings_24"
+          android:gravity="center"
+          android:paddingEnd="40dp"
+          android:paddingStart="40dp"
+          android:text="@string/settings"
+          android:textColor="@color/black"
+          android:textSize="20sp"
+          />
+
+      <!--设置“来源”的文本-->
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="20dp"
+          android:text="@string/source"
+          android:textSize="20sp"
+          />
+
+    </LinearLayout>
+
+    <!--设置垂直滚动视图-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/WhiteSmoke"
+        android:scrollbars="none"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainPageLocationRow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fillViewport="true"
+        >
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:orientation="vertical"
+          >
+
+        <!--设置“下载与接收”按钮-->
+        <Button
+            android:id="@+id/MainPageDownloadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_download"
+            android:gravity="center"
+            android:paddingEnd="40dp"
+            android:paddingStart="40dp"
+            android:text="@string/download"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+
+        <!--设置“录音机”按钮-->
+        <Button
+            android:id="@+id/MainPageRecordingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_radio"
+            android:gravity="center"
+            android:paddingEnd="40dp"
+            android:paddingStart="40dp"
+            android:text="@string/radio"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/MainPageDCIMButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/baseline_camera_alt_24"
+            android:gravity="center"
+            android:paddingEnd="40dp"
+            android:paddingStart="40dp"
+            android:text="@string/camera"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/MainPagePicturesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/baseline_photo_library_24"
+            android:gravity="center"
+            android:paddingEnd="40dp"
+            android:paddingStart="40dp"
+            android:text="@string/pictures"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/MainPageDocumentsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/rounded_lab_profile_24"
+            android:gravity="center"
+            android:paddingEnd="40dp"
+            android:paddingStart="40dp"
+            android:text="@string/documents"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+
+      </LinearLayout>
+    </ScrollView>
+
+
+  <Button
+      android:id="@+id/MainPageSearchButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/white"
+      android:drawableLeft="@drawable/ic_search"
+      android:gravity="center"
+      android:layout_marginHorizontal="60dp"
+      android:text="@string/search_file"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/MainPageTitleRow"
+      />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
